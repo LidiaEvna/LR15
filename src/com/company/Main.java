@@ -3,13 +3,14 @@ package com.company;
 public class Main {
     public static void main(String[] args) {
         Clothes []clothes={
-                new Pants(Size.XXS,"бежевые",1500),
-                new Skirt(Size.S,"голубая",2000),
-                new Tie(Size.L,"черный",350),
-                new TeeShirt(Size.M,"белая",750),
-                new Pants(Size.XS,"серо-голубые",1700),
+                new Pants(Size.XXS,"черные",4500,"Брюки"),
+                new Skirt(Size.XS,"голубая",2000,"Юбка"),
+                new Tie(Size.S,"бардовый",1500,"Галстук"),
+                new TeeShirt(Size.M,"белая",750,"Футболка"),
+                new Pants(Size.L,"серо-голубые",1700,"Брюки"),
         };
         for (int i = 0; i< clothes.length; i++) {
+            System.out.println(clothes[i].name);
             System.out.println(clothes[i].size);
             System.out.println(clothes[i].color);
             System.out.println(clothes[i].cost);
@@ -54,32 +55,34 @@ interface Womensclothing{
 abstract class Clothes{
     Size size;
     String color;
+    String name;
     int cost;
 
-    public Clothes(Size size,String color,int cost){
+    public Clothes(Size size,String color,int cost, String name){
         this.size=size;
         this.color=color;
         this.cost=cost;
+        this.name=name;
     }
 }
 class TeeShirt extends Clothes implements Mensclothing,Womensclothing{
-    public TeeShirt(Size size, String color,int cost) {
-        super(size, color,cost);
+    public TeeShirt(Size size, String color,int cost, String name) {
+        super(size, color,cost, name);
     }
 }
 class Pants extends Clothes implements Mensclothing,Womensclothing {
-    public Pants(Size size, String color, int cost) {
-        super(size, color, cost);
+    public Pants(Size size, String color, int cost, String name) {
+        super(size, color, cost, name);
     }
 }
 class Skirt extends Clothes implements  Womensclothing {
-    public Skirt(Size size, String color, int cost) {
-        super(size, color, cost);
+    public Skirt(Size size, String color, int cost, String name) {
+        super(size, color, cost, name);
     }
 }
 class Tie extends Clothes implements Mensclothing{
-    public Tie(Size size, String color,int cost) {
-        super(size, color,cost);
+    public Tie(Size size, String color,int cost, String name) {
+        super(size, color,cost, name);
     }
 }
 class Atelier {
